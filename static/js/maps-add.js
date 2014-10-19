@@ -61,7 +61,7 @@ function update_rect(center) {
             console.log(center);
             update_rect(center);
         });
-    }
+
 
     google.maps.event.addDomListener(window, 'resize', function () {
         var center = map.getCenter();
@@ -72,19 +72,7 @@ function update_rect(center) {
         var bounds = map.getBounds();
         searchBox.setBounds(bounds);
     });
-//    google.maps.event.addListener(map, 'click', function (event) {
-////        placeMarker(event.latLng);
-//
-//
-////
-////        var rectangle = new google.maps.Rectangle({
-////          bounds: bounds,
-////          editable: true,
-////          draggable: true,
-////            map: map
-////        });
-////
-////        rectangle.setMap(map);
-//    });
+    }
+
     google.maps.event.addDomListener(window, 'load', initialize);
 })(jQuery, google);

@@ -19,7 +19,6 @@ var map;
 
         add_search(map);
 
-    }
 
     google.maps.event.addDomListener(window, 'resize', function () {
         var center = map.getCenter();
@@ -30,5 +29,8 @@ var map;
         var bounds = map.getBounds();
         searchBox.setBounds(bounds);
     });
+
+    }
+
     google.maps.event.addDomListener(window, 'load', initialize);
 })(jQuery, google);
