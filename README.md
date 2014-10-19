@@ -16,5 +16,5 @@ You'll need `Python 2.7` and `pip` to install vWindow.
 Run
 ===
 
-1. Run: `python ./run_me.py`
+1. Run: `python ./color.my.map.py`
 2. Navigate your web browser to shown address. (Fully tested on Google Chrome +30, Safari 6+)
