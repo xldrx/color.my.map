@@ -24,7 +24,7 @@ def main_window_areas():
 
 
 @app.route('/simple-map')
-def main_window_areas():
+def simple_map():
     return render_template("simple-map.html")
 
 if __name__ == '__main__':
