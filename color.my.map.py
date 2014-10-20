@@ -1,11 +1,24 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import datastorage
+import datetime
+import json
 
 app = Flask(__name__)
 
 
-@app.route('/add-area')
+@app.route('/add-area', methods=['POST'])
 def add_area():
-    return ''
+    area = dict(n=request.form['n'], w=request.form['w'], e=request.form['e'], s=request.form['s'],
+                color=request.form['color'], date=unicode(datetime.datetime.now()))
+    datastorage.add_area(area)
+    return json.dumps(True)
+
+
+@app.route('/remove-area', methods=['POST'])
+def remove_area():
+    area = dict(n=request.form['n'], w=request.form['w'], e=request.form['e'], s=request.form['s'])
+    datastorage.remove_area(area)
+    return json.dumps(True)
 
 
 @app.route('/add-window')
@@ -20,7 +33,7 @@ def main_window():
 
 @app.route('/areas.js')
 def main_window_areas():
-    return render_template("areas.js.html", areas=[])
+    return render_template("areas.js.html", areas=datastorage.get_areas())
 
 
 @app.route('/simple-map')

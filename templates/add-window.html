@@ -18,6 +18,8 @@
         <link rel="stylesheet" type="text/css" media="all" href="static/css/buttons-core.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="static/css/buttons.css" />
 
+        <link rel="stylesheet" type="text/css" media="all" href="static/css/jquery.tinycolorpicker.css" />
+
         <script src="static/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -102,6 +104,12 @@
 					    <div class="footer-parent" style="width:100%; height: 100%; ">
                             <div class="w2_text">
                                 <img id="color_4" src="" width="100%" height="60px" class="color_placeholder">
+                                <div id="colorPicker">
+                                    <a class="color"><div class="colorInner"></div></a>
+                                    <div class="track"></div>
+                                    <ul class="dropdown"><li></li></ul>
+                                    <input type="hidden" class="colorInput"/>
+                                </div>
                             </div>
 						</div>
             		</div>
@@ -109,7 +117,7 @@
 					<div class="grid_2" style="height:120px; vertical-align:middle; display: table-cell;">
 					    <div class="footer-parent" style="width:100%; height: 100%; ">
                             <div class="w2_text">
-						        <button class="button-success pure-button" style="width: 75%">Add Color</button>
+						        <button class="button-success pure-button" style="width: 75%" onclick="submit();">Add Color</button>
 						        <button class="button-error pure-button" style="width: 75%" onclick="window.close();return false;">Never Mind</button>
                             </div>
 						</div>
@@ -124,11 +132,14 @@
         <script src="/static/js/maps-styles.js"></script>
         <script src="/static/js/maps-add.js"></script>
         <script src="/static/js/color-thief.js"></script>
+        <script src="/areas.js"></script>
         <script src="/static/js/add.js"></script>
+        <script src="/static/js/jquery.tinycolorpicker.js"></script>
+        <script src="/static/js/jquery.exif.js"></script>
         <script>
             init();
-            map_init();
-            var RunCallbackFunction = function(color, area) { };
+            var RunCallbackFunction = function(color, n,w,e,s) { };
+
         </script>
     </body>
 </html>

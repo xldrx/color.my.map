@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{#<script>#}
+    function add_area(color, n, e, s, w) {
+        var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(s, w), new google.maps.LatLng(n, e))
+        var rect = new google.maps.Rectangle({
+            bounds: bounds,
+            editable: false,
+            draggable: false,
+            map: map,
+            fillColor: color,
+            fillOpacity: 1,
+            strokeColor: color,
+            strokeWeight: 0
+        });
+       google.maps.event.addListener(rect, 'dblclick', function(event) {
+            double_click(rect);
+       });
+    }
 
-</body>
-</html>
+    function add_areas() {
+        {% for area in areas %}
+            add_area("{{ area.color }}", {{ area.n  }}, {{ area.e }}, {{ area.s }}, {{ area.w  }});
+        {% endfor %}
+    }
+{#</script>#}

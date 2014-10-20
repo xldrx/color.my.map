@@ -35,6 +35,7 @@ function update_rect(center) {
     else {
         rect.setBounds(bounds);
     }
+    map.panTo(center);
 }
 
 (function ($, google) {
@@ -54,7 +55,10 @@ function update_rect(center) {
             };
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-        add_search(map);
+        var searchBox = add_search(map);
+        $('img[src$="undo_poly.png"]').hide();
+        add_areas();
+
 
         google.maps.event.addListener(map, 'click', function (event) {
             var center = event.latLng;

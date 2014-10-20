@@ -19,4 +19,20 @@ def add_area(area):
     areas = get_areas()
     areas.append(area)
     with open(DB_FILE, "w") as fp:
-        json.dump(areas, fp)
+        json.dump(areas, fp, indent=4)
+
+def remove_area(area):
+    areas = get_areas()
+    for a in areas:
+        if area['n'] != a['n']:
+            continue
+        if area['s'] != a['s']:
+            continue
+        if area['w'] != a['w']:
+            continue
+        if area['e'] != a['e']:
+            continue
+        areas.remove(a)
+
+    with open(DB_FILE, "w") as fp:
+        json.dump(areas, fp, indent=4)

@@ -116,7 +116,7 @@ function get_style() {
             "featureType": "poi",
             "stylers": [
                 {
-                    "visibility": "simplified"
+                    "visibility": "off"
                 }
             ]
         },
@@ -296,5 +296,6 @@ function add_search(map) {
     }
 
     map.fitBounds(bounds);
+      return searchBox;
   });
 }
