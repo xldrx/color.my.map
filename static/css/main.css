@@ -476,6 +476,7 @@ nav a:hover {
 }
 
 .hideit{
+    display: none;
     visibility: hidden;
 }
 

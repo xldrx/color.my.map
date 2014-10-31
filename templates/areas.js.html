@@ -14,6 +14,10 @@
        google.maps.event.addListener(rect, 'dblclick', function(event) {
             double_click(rect);
        });
+
+       google.maps.event.addListener(rect, 'click', function(event) {
+            color_click(color);
+       });
     }
 
     function add_areas() {
